@@ -13,7 +13,7 @@
 		3B35BCF42C423F8100AC2C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B35BCF32C423F8100AC2C2F /* Assets.xcassets */; };
 		3B35BCF72C423F8100AC2C2F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3B35BCF62C423F8100AC2C2F /* Base */; };
 		3B35BD062C42408B00AC2C2F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD052C42408B00AC2C2F /* Network.swift */; };
-		3B35BD082C42409600AC2C2F /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD072C42409600AC2C2F /* MainPresenterProtocol.swift */; };
+		3B35BD082C42409600AC2C2F /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD072C42409600AC2C2F /* MainPresenter.swift */; };
 		3B35BD0C2C4242A800AC2C2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD0B2C4242A800AC2C2F /* Extensions.swift */; };
 		3B35BD0F2C42436C00AC2C2F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 3B35BD0E2C42436C00AC2C2F /* Moya */; };
 		3B35BD122C42437700AC2C2F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B35BD112C42437700AC2C2F /* Kingfisher */; };
@@ -40,7 +40,7 @@
 		3B35BCF62C423F8100AC2C2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B35BCF82C423F8100AC2C2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B35BD052C42408B00AC2C2F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		3B35BD072C42409600AC2C2F /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
+		3B35BD072C42409600AC2C2F /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		3B35BD0A2C42420B00AC2C2F /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		3B35BD0B2C4242A800AC2C2F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3B35BD192C42476800AC2C2F /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		3B35BD012C42404E00AC2C2F /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				3B35BD072C42409600AC2C2F /* MainPresenterProtocol.swift */,
+				3B35BD072C42409600AC2C2F /* MainPresenter.swift */,
 			);
 			name = Presenters;
 			sourceTree = "<group>";
@@ -279,7 +279,7 @@
 				3B35BD2E2C42701400AC2C2F /* TableViewCell.swift in Sources */,
 				3B35BD2C2C42700900AC2C2F /* TableView.swift in Sources */,
 				3B35BD202C42478D00AC2C2F /* Network+Method.swift in Sources */,
-				3B35BD082C42409600AC2C2F /* MainPresenterProtocol.swift in Sources */,
+				3B35BD082C42409600AC2C2F /* MainPresenter.swift in Sources */,
 				3B35BD1E2C42478300AC2C2F /* Network+Path.swift in Sources */,
 				3B35BD0C2C4242A800AC2C2F /* Extensions.swift in Sources */,
 				3B35BD1C2C42477700AC2C2F /* Network+BaseURL.swift in Sources */,
