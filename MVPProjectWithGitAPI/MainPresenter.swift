@@ -12,6 +12,7 @@ protocol MainViewInput {
     func searchUser(userID: String)
     func getUserInfos() -> [UserInfo]
     func getNumberOfUserInfos() -> Int
+    func clearButtonTapped()
 }
 
 final class MainPresenter {
@@ -46,5 +47,9 @@ extension MainPresenter: MainViewInput {
     
     func getNumberOfUserInfos() -> Int {
         return userInfo.count
+    }
+    
+    func clearButtonTapped() {
+        view?.clearTextField()
     }
 }

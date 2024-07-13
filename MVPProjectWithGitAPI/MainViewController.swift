@@ -10,6 +10,7 @@ import UIKit
 protocol MainViewOutput: AnyObject {
     func bindPresenter(presenter: MainViewInput)
     func reloadTableView()
+    func clearTextField()
 }
 
 class MainViewController: UIViewController {
@@ -20,7 +21,8 @@ class MainViewController: UIViewController {
     // MARK: - Layouts
     private lazy var searchView = SearchView().then {
         $0.textField.delegate = self
-        $0.searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        $0.searchButton.addTarget(self, action: #selector(searchButtonAction), for: .touchUpInside)
+        $0.clearButton.addTarget(self, action: #selector(clearButtonAction), for: .touchUpInside)
     }
     
     private lazy var tableView = TableView().then {
@@ -61,9 +63,13 @@ class MainViewController: UIViewController {
         }
     }
     
-    @objc func searchButtonTapped() {
+    @objc private func searchButtonAction() {
         guard let text = searchView.textField.text else { return }
         presenter.searchUser(userID: text)
+    }
+    
+    @objc private func clearButtonAction() {
+        presenter.clearButtonTapped()
     }
     
     required init?(coder: NSCoder) {
@@ -79,6 +85,10 @@ extension MainViewController: MainViewOutput {
     
     func reloadTableView() {
         tableView.tableView.reloadData()
+    }
+    
+    @objc func clearTextField() {
+        searchView.textField.text = ""
     }
 }
 
@@ -105,7 +115,7 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchButtonTapped()
+        searchButtonAction()
         return true
     }
 }

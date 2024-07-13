@@ -25,7 +25,6 @@ final class SearchView: UIView {
         $0.alignment = .fill
         $0.distribution = .fill
         $0.backgroundColor = .clear
-        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     // search 텍스트 필드
@@ -37,20 +36,17 @@ final class SearchView: UIView {
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
         $0.returnKeyType = .search
-        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     // clear 버튼
     private(set) var clearButton = UIButton().then {
         $0.isHidden = true
         $0.setImage(UIImage(systemName: "x.circle")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal), for: .normal)
-        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     // search 버튼
     private(set) var searchButton = UIButton().then {
         $0.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     // MARK: - Life Cycles
