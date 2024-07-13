@@ -8,12 +8,12 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    private var tempNetworkProvider = NetworkProvider.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
     }
-
-
 }
 
