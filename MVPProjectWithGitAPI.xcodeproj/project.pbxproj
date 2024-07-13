@@ -15,6 +15,10 @@
 		3B35BD062C42408B00AC2C2F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD052C42408B00AC2C2F /* Network.swift */; };
 		3B35BD082C42409600AC2C2F /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD072C42409600AC2C2F /* MainPresenter.swift */; };
 		3B35BD0C2C4242A800AC2C2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD0B2C4242A800AC2C2F /* Extensions.swift */; };
+		3B35BD0F2C42436C00AC2C2F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 3B35BD0E2C42436C00AC2C2F /* Moya */; };
+		3B35BD122C42437700AC2C2F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B35BD112C42437700AC2C2F /* Kingfisher */; };
+		3B35BD152C42438000AC2C2F /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 3B35BD142C42438000AC2C2F /* Then */; };
+		3B35BD182C42439000AC2C2F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B35BD172C42439000AC2C2F /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B35BD122C42437700AC2C2F /* Kingfisher in Frameworks */,
+				3B35BD182C42439000AC2C2F /* SnapKit in Frameworks */,
+				3B35BD152C42438000AC2C2F /* Then in Frameworks */,
+				3B35BD0F2C42436C00AC2C2F /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +163,12 @@
 			dependencies = (
 			);
 			name = MVPProjectWithGitAPI;
+			packageProductDependencies = (
+				3B35BD0E2C42436C00AC2C2F /* Moya */,
+				3B35BD112C42437700AC2C2F /* Kingfisher */,
+				3B35BD142C42438000AC2C2F /* Then */,
+				3B35BD172C42439000AC2C2F /* SnapKit */,
+			);
 			productName = MVPProjectWithGitAPI;
 			productReference = 3B35BCE72C423F8000AC2C2F /* MVPProjectWithGitAPI.app */;
 			productType = "com.apple.product-type.application";
@@ -183,6 +197,12 @@
 				Base,
 			);
 			mainGroup = 3B35BCDE2C423F8000AC2C2F;
+			packageReferences = (
+				3B35BD0D2C42436C00AC2C2F /* XCRemoteSwiftPackageReference "Moya" */,
+				3B35BD102C42437700AC2C2F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				3B35BD132C42438000AC2C2F /* XCRemoteSwiftPackageReference "Then" */,
+				3B35BD162C42439000AC2C2F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 3B35BCE82C423F8000AC2C2F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -437,6 +457,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B35BD0D2C42436C00AC2C2F /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		3B35BD102C42437700AC2C2F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+		3B35BD132C42438000AC2C2F /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then?tab=readme-ov-file";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		3B35BD162C42439000AC2C2F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B35BD0E2C42436C00AC2C2F /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B35BD0D2C42436C00AC2C2F /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		3B35BD112C42437700AC2C2F /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B35BD102C42437700AC2C2F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		3B35BD142C42438000AC2C2F /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B35BD132C42438000AC2C2F /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		3B35BD172C42439000AC2C2F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B35BD162C42439000AC2C2F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B35BCDF2C423F8000AC2C2F /* Project object */;
 }
