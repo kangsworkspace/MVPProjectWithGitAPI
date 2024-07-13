@@ -14,7 +14,12 @@ protocol MainPresenterProtocol {
 final class MainPresenter {
     // MARK: - Field
     weak var view: MainViewProtocol?
+    private var networkProvider = NetworkProvider.shared
     
+    // MARK: - Life Cycles
+    init() {
+        networkProvider.login()
+    }
 }
 
 // MARK: - Extensions
@@ -22,6 +27,5 @@ extension MainPresenter: MainPresenterProtocol {
     // MARK: - Functions
     func bindView(view: any MainViewProtocol) {
         self.view = view
-        view.checkConnected()
     }
 }

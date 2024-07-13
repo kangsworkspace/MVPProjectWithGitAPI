@@ -9,7 +9,6 @@ import UIKit
 
 protocol MainViewProtocol: AnyObject {
     func bindPresenter(presenter: MainPresenterProtocol)
-    func checkConnected()
 }
 
 class MainViewController: UIViewController {
@@ -30,13 +29,11 @@ class MainViewController: UIViewController {
     init(presenter: MainPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        
         bindPresenter(presenter: presenter)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUI()
     }
     
@@ -69,10 +66,6 @@ class MainViewController: UIViewController {
 extension MainViewController: MainViewProtocol {
     func bindPresenter(presenter: any MainPresenterProtocol) {
         presenter.bindView(view: self)
-    }
-    
-    func checkConnected() {
-        print("뷰와 프레젠터 연결 완료")
     }
 }
 
