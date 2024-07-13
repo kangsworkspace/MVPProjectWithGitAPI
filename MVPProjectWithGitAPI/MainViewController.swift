@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol MainViewProtocol: AnyObject {
+    func bindPresenter(presenter: MainPresenterProtocol)
+    func checkConnected()
+}
+
 class MainViewController: UIViewController {
+    // MARK: - Field
+    // 프레젠터
+    private var presenter: MainPresenterProtocol
     
     // MARK: - Layouts
     private lazy var searchView = SearchView()
@@ -15,6 +23,15 @@ class MainViewController: UIViewController {
     private lazy var tableView = TableView().then {
         $0.tableView.dataSource = self
         $0.tableView.delegate = self
+    }
+    
+    // MARK: - Life Cycles
+    // 의존성 주입
+    init(presenter: MainPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+        
+        bindPresenter(presenter: presenter)
     }
     
     override func viewDidLoad() {
@@ -41,6 +58,21 @@ class MainViewController: UIViewController {
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-15)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Extensions
+extension MainViewController: MainViewProtocol {
+    func bindPresenter(presenter: any MainPresenterProtocol) {
+        presenter.bindView(view: self)
+    }
+    
+    func checkConnected() {
+        print("뷰와 프레젠터 연결 완료")
     }
 }
 
