@@ -13,6 +13,7 @@ protocol MainViewInput {
     func getUserInfos() -> [UserInfo]
     func getNumberOfUserInfos() -> Int
     func clearButtonTapped()
+    func textFieldChanged(text: String)
 }
 
 final class MainPresenter {
@@ -51,5 +52,13 @@ extension MainPresenter: MainViewInput {
     
     func clearButtonTapped() {
         view?.clearTextField()
+    }
+    
+    func textFieldChanged(text: String) {
+        if text.isEmpty {
+            view?.hideClearButton()
+        } else {
+            view?.showClearButton()
+        }
     }
 }

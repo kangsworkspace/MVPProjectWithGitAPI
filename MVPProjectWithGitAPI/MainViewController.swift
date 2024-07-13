@@ -11,6 +11,8 @@ protocol MainViewOutput: AnyObject {
     func bindPresenter(presenter: MainViewInput)
     func reloadTableView()
     func clearTextField()
+    func showClearButton()
+    func hideClearButton()
 }
 
 class MainViewController: UIViewController {
@@ -21,6 +23,7 @@ class MainViewController: UIViewController {
     // MARK: - Layouts
     private lazy var searchView = SearchView().then {
         $0.textField.delegate = self
+        $0.textField.addTarget(self, action: #selector(textFieldChangeAction), for: .editingChanged)
         $0.searchButton.addTarget(self, action: #selector(searchButtonAction), for: .touchUpInside)
         $0.clearButton.addTarget(self, action: #selector(clearButtonAction), for: .touchUpInside)
     }
@@ -72,6 +75,10 @@ class MainViewController: UIViewController {
         presenter.clearButtonTapped()
     }
     
+    @objc private func textFieldChangeAction() {
+        presenter.textFieldChanged(text: searchView.textField.text ?? "")
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -87,8 +94,16 @@ extension MainViewController: MainViewOutput {
         tableView.tableView.reloadData()
     }
     
-    @objc func clearTextField() {
+    func clearTextField() {
         searchView.textField.text = ""
+    }
+    
+    func showClearButton() {
+        searchView.clearButton.isHidden = false
+    }
+    
+    func hideClearButton() {
+        searchView.clearButton.isHidden = true
     }
 }
 
