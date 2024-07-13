@@ -16,7 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = MainViewController()
+        
+        let presenter = MainPresenter()
+        window?.rootViewController = MainViewController(presenter: presenter)
         window?.makeKeyAndVisible()
         window?.overrideUserInterfaceStyle = .light
     }
@@ -49,6 +51,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            // 임시 코드값 구하기
+            let code = url.absoluteString.components(separatedBy: "code=").last ?? ""
+            NetworkProvider.shared.fetchAccessToken(tempCode: code)
+        }
+    }
 }
 
