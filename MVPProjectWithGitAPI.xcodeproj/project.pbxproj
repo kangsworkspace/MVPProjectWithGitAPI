@@ -25,6 +25,7 @@
 		3B35BD202C42478D00AC2C2F /* Network+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD1F2C42478D00AC2C2F /* Network+Method.swift */; };
 		3B35BD222C42479A00AC2C2F /* Network+Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD212C42479A00AC2C2F /* Network+Task.swift */; };
 		3B35BD242C4247A900AC2C2F /* Network+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD232C4247A900AC2C2F /* Network+Header.swift */; };
+		3B35BD272C42644F00AC2C2F /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD262C42644F00AC2C2F /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		3B35BD1F2C42478D00AC2C2F /* Network+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Method.swift"; sourceTree = "<group>"; };
 		3B35BD212C42479A00AC2C2F /* Network+Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Task.swift"; sourceTree = "<group>"; };
 		3B35BD232C4247A900AC2C2F /* Network+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Header.swift"; sourceTree = "<group>"; };
+		3B35BD262C42644F00AC2C2F /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,13 +140,8 @@
 		3B35BD032C42405200AC2C2F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3B35BD052C42408B00AC2C2F /* Network.swift */,
-				3B35BD192C42476800AC2C2F /* NetworkProvider.swift */,
-				3B35BD1B2C42477700AC2C2F /* Network+BaseURL.swift */,
-				3B35BD1D2C42478300AC2C2F /* Network+Path.swift */,
-				3B35BD1F2C42478D00AC2C2F /* Network+Method.swift */,
-				3B35BD212C42479A00AC2C2F /* Network+Task.swift */,
-				3B35BD232C4247A900AC2C2F /* Network+Header.swift */,
+				3B35BD252C42644200AC2C2F /* Entities */,
+				3B35BD282C42646B00AC2C2F /* Network */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -163,6 +160,28 @@
 				3B35BCF52C423F8100AC2C2F /* LaunchScreen.storyboard */,
 			);
 			name = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		3B35BD252C42644200AC2C2F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3B35BD262C42644F00AC2C2F /* UserInfo.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		3B35BD282C42646B00AC2C2F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3B35BD052C42408B00AC2C2F /* Network.swift */,
+				3B35BD192C42476800AC2C2F /* NetworkProvider.swift */,
+				3B35BD1B2C42477700AC2C2F /* Network+BaseURL.swift */,
+				3B35BD1D2C42478300AC2C2F /* Network+Path.swift */,
+				3B35BD1F2C42478D00AC2C2F /* Network+Method.swift */,
+				3B35BD212C42479A00AC2C2F /* Network+Task.swift */,
+				3B35BD232C4247A900AC2C2F /* Network+Header.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +274,7 @@
 				3B35BD1C2C42477700AC2C2F /* Network+BaseURL.swift in Sources */,
 				3B35BCEF2C423F8000AC2C2F /* MainViewController.swift in Sources */,
 				3B35BCEB2C423F8000AC2C2F /* AppDelegate.swift in Sources */,
+				3B35BD272C42644F00AC2C2F /* UserInfo.swift in Sources */,
 				3B35BD062C42408B00AC2C2F /* Network.swift in Sources */,
 				3B35BD242C4247A900AC2C2F /* Network+Header.swift in Sources */,
 				3B35BD222C42479A00AC2C2F /* Network+Task.swift in Sources */,

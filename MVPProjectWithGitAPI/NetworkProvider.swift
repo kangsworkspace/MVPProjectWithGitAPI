@@ -52,4 +52,31 @@ final class NetworkProvider {
             }
         }
     }
+    
+    /// 유저 정보 가져오기
+    /// - Parameter userID: 검색할 유저의 ID 값
+    /// - Parameter page: 페이지 값(Pagination 처리)
+    func fetchUserData(userID: String, page: Int?, completion: @escaping(UserInfoList?) -> Void) {
+        provider.request(.gitUserInfo(accessToken: accessToken, userID: userID, page: page)) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    guard let jsonString = String(data: response.data, encoding: .utf8) else { return }
+                    guard let jsonData = jsonString.data(using: .utf8) else { return }
+                    
+                    // 디코드
+                    let decoder = JSONDecoder()
+                    let resultArray = try decoder.decode(UserInfoList.self, from: jsonData)
+                    
+                    completion(resultArray)
+                } catch let error {
+                    print(error)
+                    completion(nil)
+                }
+            case .failure(let error):
+                print(error)
+                completion(nil)
+            }
+        }
+    }
 }
