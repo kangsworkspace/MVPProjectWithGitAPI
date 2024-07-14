@@ -29,6 +29,7 @@
 		3B35BD2A2C426F6D00AC2C2F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD292C426F6D00AC2C2F /* SearchView.swift */; };
 		3B35BD2C2C42700900AC2C2F /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD2B2C42700900AC2C2F /* TableView.swift */; };
 		3B35BD2E2C42701400AC2C2F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BD2D2C42701400AC2C2F /* TableViewCell.swift */; };
+		3B4035C72C43AB4000AA5EFC /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4035C62C43AB4000AA5EFC /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		3B35BD292C426F6D00AC2C2F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		3B35BD2B2C42700900AC2C2F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		3B35BD2D2C42701400AC2C2F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		3B4035C62C43AB4000AA5EFC /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				3B35BD292C426F6D00AC2C2F /* SearchView.swift */,
 				3B35BD2B2C42700900AC2C2F /* TableView.swift */,
 				3B35BD2D2C42701400AC2C2F /* TableViewCell.swift */,
+				3B4035C62C43AB4000AA5EFC /* EmptyView.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				3B35BD082C42409600AC2C2F /* MainPresenter.swift in Sources */,
 				3B35BD1E2C42478300AC2C2F /* Network+Path.swift in Sources */,
 				3B35BD0C2C4242A800AC2C2F /* Extensions.swift in Sources */,
+				3B4035C72C43AB4000AA5EFC /* EmptyView.swift in Sources */,
 				3B35BD1C2C42477700AC2C2F /* Network+BaseURL.swift in Sources */,
 				3B35BCEF2C423F8000AC2C2F /* MainViewController.swift in Sources */,
 				3B35BCEB2C423F8000AC2C2F /* AppDelegate.swift in Sources */,
