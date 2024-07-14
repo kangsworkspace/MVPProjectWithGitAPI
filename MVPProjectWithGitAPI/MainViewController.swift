@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import SafariServices
+
+import SnapKit
 
 protocol MainViewOutput: AnyObject {
     func bindPresenter(presenter: MainViewInput)
@@ -13,6 +16,9 @@ protocol MainViewOutput: AnyObject {
     func clearTextField()
     func showClearButton()
     func hideClearButton()
+    func showWebPage(url: URL)
+    func showEmptyView()
+    func hideEmptyView()
 }
 
 class MainViewController: UIViewController {
@@ -31,6 +37,10 @@ class MainViewController: UIViewController {
     private lazy var tableView = TableView().then {
         $0.tableView.dataSource = self
         $0.tableView.delegate = self
+    }
+    
+    private var emptyView = EmptyView().then {
+        $0.isHidden = true
     }
     
     // MARK: - Life Cycles
@@ -52,6 +62,7 @@ class MainViewController: UIViewController {
         
         view.addSubview(searchView)
         view.addSubview(tableView)
+        view.addSubview(emptyView)
         
         searchView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(15)
@@ -63,6 +74,11 @@ class MainViewController: UIViewController {
             make.top.equalTo(searchView.snp.bottom).offset(10)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-15)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        emptyView.snp.makeConstraints { make in
+            make.top.equalTo(searchView.snp.bottom).offset(40)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
@@ -77,6 +93,11 @@ class MainViewController: UIViewController {
     
     @objc private func textFieldChangeAction() {
         presenter.textFieldChanged(text: searchView.textField.text ?? "")
+    }
+    
+    // 다른 화면을 눌렀을 때 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     required init?(coder: NSCoder) {
@@ -105,6 +126,20 @@ extension MainViewController: MainViewOutput {
     func hideClearButton() {
         searchView.clearButton.isHidden = true
     }
+    
+    func showWebPage(url: URL) {
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.modalPresentationStyle = .automatic
+        self.present(safariViewController, animated: true)
+    }
+    
+    func showEmptyView() {
+        emptyView.isHidden = false
+    }
+    
+    func hideEmptyView() {
+        emptyView.isHidden = true
+    }
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -120,11 +155,23 @@ extension MainViewController: UITableViewDataSource {
         cell.setImage(with: userInfos[indexPath.row].avatarURL)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let numberOfRows = tableView.numberOfRows(inSection: indexPath.section)
+        
+        if indexPath.row == numberOfRows - 4 {
+            presenter.loadMoreUserInfo()
+        }
+    }
 }
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if searchView.textField.isFirstResponder {
+            self.view.endEditing(true)
+        } else {
+            presenter.tableViewTapped(index: indexPath.row)
+        }
     }
 }
 
