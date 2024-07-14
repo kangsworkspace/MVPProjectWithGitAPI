@@ -14,6 +14,7 @@ protocol MainViewInput {
     func getNumberOfUserInfos() -> Int
     func clearButtonTapped()
     func textFieldChanged(text: String)
+    func tableViewTapped(index: Int)
 }
 
 final class MainPresenter {
@@ -60,5 +61,10 @@ extension MainPresenter: MainViewInput {
         } else {
             view?.showClearButton()
         }
+    }
+    
+    func tableViewTapped(index: Int) {
+        guard let url = URL(string: userInfo[index].url) else { return }
+        view?.showWebPage(url: url)
     }
 }
