@@ -15,6 +15,7 @@ protocol MainViewInput {
     func clearButtonTapped()
     func textFieldChanged(text: String)
     func tableViewTapped(index: Int)
+    func loadMoreUserInfo()
 }
 
 final class MainPresenter {
@@ -22,6 +23,9 @@ final class MainPresenter {
     weak var view: MainViewOutput?
     private var networkProvider = NetworkProvider.shared
     private var userInfo: [UserInfo] = []
+    
+    private var searchingText: String?
+    private var searchingPage = 1
     
     // MARK: - Life Cycles
     init() {
@@ -40,6 +44,9 @@ extension MainPresenter: MainViewInput {
             guard let userInfoArray = userInfoList?.userInfo else { return }
             self?.userInfo = userInfoArray
             self?.view?.reloadTableView()
+            
+            self?.searchingPage = 1
+            self?.searchingText = userID
             
             if userInfoArray.isEmpty {
                 self?.view?.showEmptyView()
@@ -72,5 +79,16 @@ extension MainPresenter: MainViewInput {
     func tableViewTapped(index: Int) {
         guard let url = URL(string: userInfo[index].url) else { return }
         view?.showWebPage(url: url)
+    }
+    
+    func loadMoreUserInfo() {
+        guard let searchingText else { return }
+        searchingPage += 1
+        
+        networkProvider.fetchUserData(userID: searchingText, page: searchingPage) {[weak self] userInfoList in
+            guard let userInfoArray = userInfoList?.userInfo else { return }
+            self?.userInfo += userInfoArray
+            self?.view?.reloadTableView()
+        }
     }
 }

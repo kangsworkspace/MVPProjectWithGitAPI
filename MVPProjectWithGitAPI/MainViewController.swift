@@ -155,6 +155,14 @@ extension MainViewController: UITableViewDataSource {
         cell.setImage(with: userInfos[indexPath.row].avatarURL)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let numberOfRows = tableView.numberOfRows(inSection: indexPath.section)
+        
+        if indexPath.row == numberOfRows - 4 {
+            presenter.loadMoreUserInfo()
+        }
+    }
 }
 
 extension MainViewController: UITableViewDelegate {
