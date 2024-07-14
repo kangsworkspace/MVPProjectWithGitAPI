@@ -17,6 +17,8 @@ protocol MainViewOutput: AnyObject {
     func showClearButton()
     func hideClearButton()
     func showWebPage(url: URL)
+    func showEmptyView()
+    func hideEmptyView()
 }
 
 class MainViewController: UIViewController {
@@ -35,6 +37,10 @@ class MainViewController: UIViewController {
     private lazy var tableView = TableView().then {
         $0.tableView.dataSource = self
         $0.tableView.delegate = self
+    }
+    
+    private var emptyView = EmptyView().then {
+        $0.isHidden = true
     }
     
     // MARK: - Life Cycles
@@ -56,6 +62,7 @@ class MainViewController: UIViewController {
         
         view.addSubview(searchView)
         view.addSubview(tableView)
+        view.addSubview(emptyView)
         
         searchView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(15)
@@ -67,6 +74,11 @@ class MainViewController: UIViewController {
             make.top.equalTo(searchView.snp.bottom).offset(10)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-15)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        emptyView.snp.makeConstraints { make in
+            make.top.equalTo(searchView.snp.bottom).offset(40)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
@@ -119,6 +131,14 @@ extension MainViewController: MainViewOutput {
         let safariViewController = SFSafariViewController(url: url)
         safariViewController.modalPresentationStyle = .automatic
         self.present(safariViewController, animated: true)
+    }
+    
+    func showEmptyView() {
+        emptyView.isHidden = false
+    }
+    
+    func hideEmptyView() {
+        emptyView.isHidden = true
     }
 }
 

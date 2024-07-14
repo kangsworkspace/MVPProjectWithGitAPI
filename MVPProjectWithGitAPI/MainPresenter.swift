@@ -40,6 +40,12 @@ extension MainPresenter: MainViewInput {
             guard let userInfoArray = userInfoList?.userInfo else { return }
             self?.userInfo = userInfoArray
             self?.view?.reloadTableView()
+            
+            if userInfoArray.isEmpty {
+                self?.view?.showEmptyView()
+            } else {
+                self?.view?.hideEmptyView()
+            }
         }
     }
     
