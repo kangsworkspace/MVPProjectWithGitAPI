@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import SafariServices
+
+import SnapKit
 
 protocol MainViewOutput: AnyObject {
     func bindPresenter(presenter: MainViewInput)
@@ -13,6 +16,7 @@ protocol MainViewOutput: AnyObject {
     func clearTextField()
     func showClearButton()
     func hideClearButton()
+    func showWebPage(url: URL)
 }
 
 class MainViewController: UIViewController {
@@ -110,6 +114,12 @@ extension MainViewController: MainViewOutput {
     func hideClearButton() {
         searchView.clearButton.isHidden = true
     }
+    
+    func showWebPage(url: URL) {
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.modalPresentationStyle = .automatic
+        self.present(safariViewController, animated: true)
+    }
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -131,6 +141,8 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if searchView.textField.isFirstResponder {
             self.view.endEditing(true)
+        } else {
+            presenter.tableViewTapped(index: indexPath.row)
         }
     }
 }
