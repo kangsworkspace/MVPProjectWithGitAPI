@@ -79,6 +79,11 @@ class MainViewController: UIViewController {
         presenter.textFieldChanged(text: searchView.textField.text ?? "")
     }
     
+    // 다른 화면을 눌렀을 때 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -124,7 +129,9 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if searchView.textField.isFirstResponder {
+            self.view.endEditing(true)
+        }
     }
 }
 
