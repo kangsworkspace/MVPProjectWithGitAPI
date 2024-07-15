@@ -51,18 +51,27 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
 }
 ```  
 그리고 `View`와 `Presenter`를 `protocol`로 연결해 의존성을 낮추고,  
-`Extension`을 통해 함수를 정리하여 특정 함수의 대응을 강제하고 코드의 시인성을 높였습니다.  
+`Extension`을 통해 함수를 정리하여 특정 함수의 대응을 강제하고 코드의 시인성을 높일 수 있었습니다.  
 함수 사진1, 함수 사진2
 
 
 #### 아쉬운 점
-- 함수가 늘어났다.(MVP 패턴을 효율적으로 준수했는가?..)
-함수 사진 1, 함수 사진 2
-예를 들어 emptyView
-webPage 함수 바로 뷰에서 처리가 가능하지만?
-emptyView 판단을 Presenter에서 하는게 맞으니...
-show랑 hide가 생김
-Input -> Presenter 처리 -> Output 처리 과정이 번거롭다(코드가 길어진다.).  
+- `Presenter`가 `View`의 UI를 직접 지시하는 과정에서 함수의 수가 늘어났습니다.  
+
+  |<img src="./img/Function1.png" width="80%"/> | <img src="./img/Function2.png" width="80%"/> | 
+  |--|--|
+
+유저의 `Input`을 `Presenter`에서 처리하고 다시 `Output`으로 프레젠테이션 상태를 관리하는 과정이 다소 복잡했습니다.  
+예를 들어 검색 결과가 없음을 알려주는 `emptyView`와 관련한 로직의 경우,  
+검색 결과가 있는지 없는지에 대한 판단을 `Presenter`에서 하고 결과에 따라 UI를 설정하면서  
+`showEmptyView()` `hideEmptyView()`로 함수를 나누어 선언하게 되었습니다.  
+<br>
+그리고 `TableViewCell`을 눌러서 해당 URL로 이동하는 경우에도  
+바로 `View`에서 처리가 가능하지만 Presenter에 해당 Input을 알리고  
+다시 `Presente`가 `View`에 해당 URL로 이동을 하도록 전달하는 과정을 거쳤습니다.
+
+최대한 디자인 패턴을 준수하려는 의도였지만 기존에 진행했던 MVC, MVVM 패턴에 비해 함수가 많이 늘어난 것을 확인했습니다.  
+결과적으로 MVP 패턴을 효율적으로는 준수하지 못했습니다.
 
 ### 작업 Flow - Git Flow
   - Main, Develop, Release, Hotfix, Feature로 브랜치를 관리하였습니다.
@@ -84,7 +93,7 @@ Input -> Presenter 처리 -> Output 처리 과정이 번거롭다(코드가 길�
 ```
 - git clone
 ```
-git clone https://github.com/kangsworkspace/MVVMProjectWithGitAPI
+git clone https://github.com/kangsworkspace/MVPProjectWithGitAPI
 ```
 - 현재 브랜치가 main에 있는지 확인하십시오.
 - Simulator 기기를 iPhone15로 설정하고 빌드합니다.
