@@ -18,7 +18,7 @@
 - `View`는 **UI**를 담당하였습니다.  
 - `Presenter`는 **프레젠테이션 로직**과 **비즈니스 로직(View의 Input 대응 & Model에 전달)** 을 담당하였습니다.  
 - `Model`은 **비즈니스 로직(데이터 fetch, entity 정의)** 을 담당하였습니다.  
-- `Presenter`에서 `protocol` 통해 **`View`의 프레젠테이션 상태를 직접 지시**하도록 하였습니다.  
+- `Presenter`에서 `protocol` 통해 **`View`의 UI 업데이트를 직접 지시**하도록 하였습니다.  
    ex) `Presenter`에서 `View`의 `reloadTableView()` 실행
 ![MVP 패턴 정리](https://github.com/user-attachments/assets/35201865-988f-414c-af7a-faaa5ec44588)  
 - [공부한 내용을 정리한 블로그 예정](https://github.com/kangsworkspace/MVCProjectWithGitAPI)
@@ -60,7 +60,7 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
   |<img src="./img/Function1.png" width="80%"/> | <img src="./img/Function2.png" width="80%"/> | 
   |--|--|
 
-유저의 `Input`을 `Presenter`에서 처리하고 다시 `Output`으로 프레젠테이션 상태를 관리하는 과정이 다소 복잡했습니다.  
+유저의 `Input`을 `Presenter`에서 처리하고 다시 `Output`으로 UI 업데이트를 지시하는 과정이 다소 복잡했습니다.  
 예를 들어 검색 결과가 없음을 알려주는 `emptyView`와 관련한 로직의 경우,  
 검색 결과가 있는지 없는지에 대한 판단을 `Presenter`에서 하고 결과에 따라 UI를 설정하면서  
 `showEmptyView()` `hideEmptyView()`로 함수를 나누어 선언하게 되었습니다.  
