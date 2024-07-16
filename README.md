@@ -77,7 +77,7 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
   - 작업 흐름은 다음과 같았습니다.
 <img src="./img/GitFlow.jpg" width="80%"/>
 
-  - [Git Flow에 대한 내용을 정리한 블로그 예정](https://dev-kang.tistory.com/36)
+  - [Git Flow에 대한 내용을 정리한 블로그](https://dev-kang.tistory.com/42)
 
 
 ### 개발 및 테스트 환경 버전
