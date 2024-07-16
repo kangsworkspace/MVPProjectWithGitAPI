@@ -21,7 +21,7 @@
 - `Presenter`에서 `protocol` 통해 **`View`의 프레젠테이션 상태를 직접 지시**하도록 하였습니다.  
    ex) `Presenter`에서 `View`의 `reloadTableView()` 실행
 ![MVP 패턴 정리](https://github.com/user-attachments/assets/35201865-988f-414c-af7a-faaa5ec44588)  
-
+- [공부한 내용을 정리한 블로그 예정](https://github.com/kangsworkspace/MVCProjectWithGitAPI)
 
 #### 의존성 주입  
 - View와 Presenter를 프로토콜로 연결하는 과정에서 의존성 주입을 적용하였습니다.  
