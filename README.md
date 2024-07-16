@@ -52,7 +52,8 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
 ```  
 그리고 `View`와 `Presenter`를 `protocol`로 연결해 의존성을 낮추고,  
 `Extension`을 통해 함수를 정리하여 특정 함수의 대응을 강제하고 코드의 시인성을 높일 수 있었습니다.  
-<img src="./img/Protocol.png" width="30%"/>  
+
+<img src="./img/Protocol.png" width="60%"/>  
 
 #### 아쉬운 점
 - `Presenter`가 `View`의 UI를 직접 지시하는 과정에서 함수의 수가 늘어났습니다.  
