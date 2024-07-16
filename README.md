@@ -75,7 +75,8 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
 ### 작업 Flow - Git Flow
   - Main, Develop, Release, Hotfix, Feature로 브랜치를 관리하였습니다.
   - 작업 흐름은 다음과 같았습니다.
-  작업 흐름 그림
+<img src="./img/GitFlow.jpg" width="80%"/>
+
   - [Git Flow에 대한 내용을 정리한 블로그 예정](https://dev-kang.tistory.com/36)
 
 
