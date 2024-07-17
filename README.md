@@ -3,12 +3,12 @@
 <img src="./img/MVPMain.png" width="30%"/>  
 
 ### 프로젝트 소개(ProjectWithGitAPI)  
-이전에 혼자 진행한 작은 프로젝트를 디자인 패턴을 맞추는 것에 중점을 두고 다시 프로젝트를 구성했습니다.  
-당시에는 `MVVM` 아키텍처로 구현했었지만 진행하는 과정에서 스스로 디자인 패턴에 대한 이해도가 부족하다고 느꼈습니다.  
+이전에 혼자 진행한 작은 프로젝트를 아키텍처 패턴을 맞추는 것에 중점을 두고 다시 프로젝트를 구성했습니다.  
+당시에는 `MVVM` 아키텍처로 구현했었지만 진행하는 과정에서 스스로 아키텍처 패턴에 대한 이해도가 부족하다고 느꼈습니다.  
 <br>
-그래서 디자인 패턴을 다시 학습한 후 동일한 기능을 다양한 디자인 패턴으로 구현하는 프로젝트를 진행하고 있습니다.  
+그래서 아키텍처 패턴을 다시 학습한 후 동일한 기능을 다양한 아키텍처 패턴으로 구현하는 프로젝트를 진행하고 있습니다.  
 해당 프로젝트는 규모가 작지만, `API 사용`, `네트워킹`, `이미지 Caching`, `페이징 처리` 등 학습한 기술들을 적극 활용할 수 있었습니다.  
-그래서 **ProjectWithGitAPI** 라는 이름으로 디자인 패턴을 공부하기 위한 프로젝트로 채택하게 되었습니다. 
+그래서 **ProjectWithGitAPI** 라는 이름으로 아키텍처 패턴을 공부하기 위한 프로젝트로 채택하게 되었습니다. 
 
 - [MVVM 프로젝트 링크](https://github.com/kangsworkspace/MVVMProjectWithGitAPI)
 - [MVC 프로젝트 링크](https://github.com/kangsworkspace/MVCProjectWithGitAPI)
@@ -70,7 +70,7 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
 바로 `View`에서 처리가 가능하지만 Presenter에 해당 Input을 알리고  
 다시 `Presente`가 `View`에 해당 URL로 이동을 하도록 전달하는 과정을 거쳤습니다.
 
-최대한 디자인 패턴을 준수하려는 의도였지만 기존에 진행했던 MVC, MVVM 패턴에 비해 함수가 많이 늘어난 것을 확인했습니다.  
+최대한 아키텍처 패턴을 준수하려는 의도였지만 기존에 진행했던 MVC, MVVM 패턴에 비해 함수가 많이 늘어난 것을 확인했습니다.  
 결과적으로 MVP 패턴을 효율적으로는 준수하지 못했습니다.
 
 ### 작업 Flow - Git Flow
